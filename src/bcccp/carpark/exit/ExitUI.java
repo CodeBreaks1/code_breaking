@@ -18,6 +18,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
 
+
 @SuppressWarnings("serial")
 public class ExitUI extends JFrame implements IExitUI {
 
