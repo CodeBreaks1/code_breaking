@@ -30,6 +30,7 @@ public class ExitUI extends JFrame implements IExitUI {
 
 	
 	
+	
 	/**
 	 * Launch the application.
 	 */
