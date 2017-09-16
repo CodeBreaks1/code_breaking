@@ -14,8 +14,18 @@ public class AdhocTicket implements IAdhocTicket {
 
 	
 	
-	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
-		//TDO Implement constructor
+	public AdhocTicket(String carparkId, int ticketNo, String barcode) throws Exception {
+		
+		if(ticketNo <= 0)
+			throw new Exception("Invalid ticketNo");
+		if(barcode.isEmpty() || barcode == null)
+			throw new Exception("Invalid barcode");
+		if(carparkId.isEmpty() || carparkId == null)
+			throw new Exception("Invalid carparkId");
+		
+		this.carparkId = carparkId;
+		this.ticketNo = ticketNo;
+		this.barcode =  barcode; // "A" + ticketNo + entryDateTime; // - not clear what the requirement is
 	}
 
 
