@@ -68,7 +68,7 @@ public class Gate extends JFrame implements IGate {
 	@Override
 	public void raise() {
 		gateStatusTextField.setBackground(Color.GREEN);
-		gateStatusTextField.setText("Gate Up");
+		gateStatusTextField.setText("Gate Opens");
 		raised = true;		
 	}
 
@@ -77,7 +77,7 @@ public class Gate extends JFrame implements IGate {
 	@Override
 	public void lower() {
 		gateStatusTextField.setBackground(Color.RED);
-		gateStatusTextField.setText("Gate Down");
+		gateStatusTextField.setText("Gate Closes");
 		raised = false;		
 	}
 
