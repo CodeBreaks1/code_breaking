@@ -12,6 +12,7 @@ public class ExitController
 		implements ICarSensorResponder,
 		           IExitController {
 	
+				   
 	private IGate exitGate;
 	private ICarSensor insideSensor;
 	private ICarSensor outsideSensor; 
