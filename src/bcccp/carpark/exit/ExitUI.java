@@ -1,11 +1,13 @@
 package bcccp.carpark.exit;
 
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+
 
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -18,6 +20,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.UIManager;
 
+
 @SuppressWarnings("serial")
 public class ExitUI extends JFrame implements IExitUI {
 
@@ -26,6 +29,7 @@ public class ExitUI extends JFrame implements IExitUI {
 	private JTextField ticketReaderTextField;
 	private IExitController controller;
 
+	
 	
 	
 	/**
