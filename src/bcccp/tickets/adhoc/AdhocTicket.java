@@ -13,8 +13,7 @@ public class AdhocTicket implements IAdhocTicket {
 	private float charge;
 	private String barcode;
 
-	
-	
+		
 	public AdhocTicket(String carparkId, int ticketNo, String barcode, float charge) throws Exception {
 		
 		if(ticketNo <= 0)
