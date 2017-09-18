@@ -88,6 +88,7 @@ public class CarSensor extends JFrame implements ICarSensor {
 			responders.remove(responder);
 		}
 	}
+	
 
 	@Override
 	public String getId() {

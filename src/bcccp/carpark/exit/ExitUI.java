@@ -2,33 +2,36 @@ package bcccp.carpark.exit;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.TitledBorder;
+ import javax.swing.JFrame;
+ import javax.swing.JPanel;
+ import javax.swing.border.EmptyBorder;
+ import javax.swing.border.TitledBorder;
 
-import javax.swing.JTextField;
-import java.awt.Font;
-import java.awt.Toolkit;
+ import javax.swing.JTextField;
+ import java.awt.Font;
+ import java.awt.Toolkit;
 
-import javax.swing.SwingConstants;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import javax.swing.UIManager;
+ import javax.swing.SwingConstants;
+ import javax.swing.JButton;
+ import java.awt.event.ActionListener;
+ import java.awt.event.ActionEvent;
+ import java.awt.Color;
+ import javax.swing.UIManager;
 
-@SuppressWarnings("serial")
-public class ExitUI extends JFrame implements IExitUI {
 
-	private JPanel contentPane;
-	private JTextField displayTextField;
-	private JTextField ticketReaderTextField;
-	private IExitController controller;
+
+ @SuppressWarnings("serial")
+ public class ExitUI extends JFrame implements IExitUI {
+
+	 private JPanel contentPane;
+	 private JTextField displayTextField;
+	 private JTextField ticketReaderTextField;
+	 private IExitController controller;
 
 	
 	
-	/**
+	
+	 /**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -77,7 +80,8 @@ public class ExitUI extends JFrame implements IExitUI {
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ticket Reader", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1.setBounds(15, 115, 306, 153);
 		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		panel_1.setLayout(null); 
+		
 		
 		ticketReaderTextField = new JTextField();
 		ticketReaderTextField.setHorizontalAlignment(SwingConstants.CENTER);
