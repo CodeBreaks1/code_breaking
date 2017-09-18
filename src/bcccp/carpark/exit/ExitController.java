@@ -10,30 +10,31 @@ import bcccp.tickets.adhoc.IAdhocTicket;
 
 
 public class ExitController 
-		implements ICarSensorResponder,
+		 implements ICarSensorResponder,
 		           IExitController {
 	
 				   
-	private IGate exitGate;
-	private ICarSensor insideSensor;
-	private ICarSensor outsideSensor; 
-	private IExitUI ui;
+	 private IGate exitGate;
+	 private ICarSensor insideSensor;
+	 private ICarSensor outsideSensor; 
+	 private IExitUI ui;
 	
 				   
-	private ICarpark carpark;
-	private IAdhocTicket  adhocTicket = null;
-	private long exitTime;
-	private String seasonTicketId = null;
+	 private ICarpark carpark;
+	 private IAdhocTicket  adhocTicket = null;
+	 private long exitTime;
+	 private String seasonTicketId = null;
 	
 	
 				   
 
-	public ExitController(Carpark carpark, IGate exitGate, 
-			ICarSensor is,
-			ICarSensor os, 
-			IExitUI ui) {
+	 public ExitController(Carpark carpark, IGate exitGate, 
+			 ICarSensor is,
+			 ICarSensor os, 
+			 IExitUI ui) {
 		
 		//TODO Implement Constructor
+		 
 		
 	}
 
