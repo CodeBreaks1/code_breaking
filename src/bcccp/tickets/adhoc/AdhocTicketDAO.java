@@ -21,7 +21,7 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 	public IAdhocTicket createTicket(String carparkId) {
 		if(carparkId == null || carparkId.isEmpty())
 			throw new RuntimeException("CarparkID is invalid");		
-		return null; // Returns a valid adhoc ticket
+		return null; // Returns a valid adhoc ticket, ==> No available IAdhocTicket property or method
 	}
 
 
