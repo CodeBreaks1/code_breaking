@@ -2,6 +2,7 @@ package bcccp.tickets.adhoc;
 
 import java.util.Date;
 
+
 public class AdhocTicket implements IAdhocTicket {
 	
 	private String carparkId;
@@ -14,99 +15,121 @@ public class AdhocTicket implements IAdhocTicket {
 
 	
 	
-	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
-		//TDO Implement constructor
+	public AdhocTicket(String carparkId, int ticketNo, String barcode) throws Exception {
+		
+		if(ticketNo <= 0)
+			throw new RuntimeException("Invalid ticketNo");
+		if(barcode.isEmpty() || barcode == null)
+			throw new RuntimeException("Invalid barcode");
+		if(carparkId.isEmpty() || carparkId == null)
+			throw new RuntimeException("Invalid carparkId");
+		
+		this.carparkId = carparkId;
+		this.ticketNo = ticketNo;
+		this.barcode =  barcode; // "A" + ticketNo + entryDateTime; // - not clear what the requirement is
 	}
 
 
 	@Override
 	public int getTicketNo() {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.ticketNo;
 	}
 
 
 	@Override
 	public String getBarcode() {
-		// TODO Auto-generated method stub
-		return null;
+		return "A" + this.barcode + entryDateTime; // Should it be returned as a this.barcode or as to the requirement description?
 	}
 
 
 	@Override
 	public String getCarparkId() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.carparkId;
 	}
 
 
 	@Override
-	public void enter(long dateTime) {
-		// TODO Auto-generated method stub
+	public void enter(long dateTime) throws Exception {
+		if(dateTime <= 0)
+			throw new RuntimeException("Invalid dateTime");
+		this.entryDateTime = dateTime;
 		
 	}
 
 
 	@Override
 	public long getEntryDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		return entryDateTime;
 	}
 
 
 	@Override
 	public boolean isCurrent() {
-		// TODO Auto-generated method stub
-		return false;
+		if(this.entryDateTime > 0) // need to Add exit constraint
+			return true;
+		else
+			return false;
 	}
 
 
 	@Override
 	public void pay(long dateTime, float charge) {
-		// TODO Auto-generated method stub
-		
+		if(dateTime <= this.entryDateTime)
+			throw new RuntimeException("Invalid payment date");
+		this.paidDateTime = dateTime;
+		this.charge = charge;
 	}
 
 
 	@Override
 	public long getPaidDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(this.isPaid())
+			return this.paidDateTime;
+		else
+			return 0;
 	}
 
 
 	@Override
 	public boolean isPaid() {
-		// TODO Auto-generated method stub
-		return false;
+		if(isCurrent())
+			return true;
+		else
+			return false;
 	}
 
 
 	@Override
 	public float getCharge() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(this.charge > 0) // Not clear
+			return this.charge;
+		else
+			return 0;
 	}
 
 
 	@Override
 	public void exit(long dateTime) {
-		// TODO Auto-generated method stub
-		
+		if(this.exitDateTime <= this.paidDateTime)
+			throw new RuntimeException("Invalid exitDateTime");		
 	}
 
 
 	@Override
 	public long getExitDateTime() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(hasExited())
+			return this.exitDateTime;
+		else
+			return 0;
 	}
 
 
 	@Override
 	public boolean hasExited() {
-		// TODO Auto-generated method stub
-		return false;
+		if(true) // Not clear
+			return true;
+		else
+			return false;
 	}
 
 	
