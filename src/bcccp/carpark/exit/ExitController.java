@@ -8,6 +8,7 @@ import bcccp.carpark.ICarpark;
 import bcccp.carpark.IGate;
 import bcccp.tickets.adhoc.IAdhocTicket;
 
+
 public class ExitController 
 		implements ICarSensorResponder,
 		           IExitController {
@@ -18,6 +19,7 @@ public class ExitController
 	private ICarSensor outsideSensor; 
 	private IExitUI ui;
 	
+				   
 	private ICarpark carpark;
 	private IAdhocTicket  adhocTicket = null;
 	private long exitTime;
@@ -30,7 +32,9 @@ public class ExitController
 			ICarSensor is,
 			ICarSensor os, 
 			IExitUI ui) {
+		
 		//TODO Implement Constructor
+		
 	}
 
 
