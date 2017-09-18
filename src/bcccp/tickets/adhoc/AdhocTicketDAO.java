@@ -10,7 +10,9 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 	
 	
 	public AdhocTicketDAO(IAdhocTicketFactory factory) {
-		//TODO Implement constructor
+		if(factory == null)
+			throw new RuntimeException("factory is null");
+		this.factory = factory;
 	}
 
 
