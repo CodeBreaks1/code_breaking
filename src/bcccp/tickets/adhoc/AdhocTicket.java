@@ -15,7 +15,7 @@ public class AdhocTicket implements IAdhocTicket {
 
 	
 	
-	public AdhocTicket(String carparkId, int ticketNo, String barcode) throws Exception {
+	public AdhocTicket(String carparkId, int ticketNo, String barcode, float charge) throws Exception {
 		
 		if(ticketNo <= 0)
 			throw new RuntimeException("Invalid ticketNo");
@@ -27,6 +27,7 @@ public class AdhocTicket implements IAdhocTicket {
 		this.carparkId = carparkId;
 		this.ticketNo = ticketNo;
 		this.barcode =  barcode; // "A" + ticketNo + entryDateTime; // - not clear what the requirement is
+		this.charge = charge;
 	}
 
 
