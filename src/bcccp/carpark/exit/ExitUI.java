@@ -1,6 +1,5 @@
 package bcccp.carpark.exit;
 
-
 import java.awt.EventQueue;
 
  import javax.swing.JFrame;
@@ -8,11 +7,9 @@ import java.awt.EventQueue;
  import javax.swing.border.EmptyBorder;
  import javax.swing.border.TitledBorder;
 
-
  import javax.swing.JTextField;
  import java.awt.Font;
  import java.awt.Toolkit;
-
 
  import javax.swing.SwingConstants;
  import javax.swing.JButton;
@@ -83,7 +80,8 @@ import java.awt.EventQueue;
 		panel_1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Ticket Reader", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1.setBounds(15, 115, 306, 153);
 		contentPane.add(panel_1);
-		panel_1.setLayout(null);
+		panel_1.setLayout(null); 
+		
 		
 		ticketReaderTextField = new JTextField();
 		ticketReaderTextField.setHorizontalAlignment(SwingConstants.CENTER);
