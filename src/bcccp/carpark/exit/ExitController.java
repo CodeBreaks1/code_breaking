@@ -20,6 +20,7 @@ public class ExitController
 	 private IExitUI ui;
 	
 				   
+				   
 	 private ICarpark carpark;
 	 private IAdhocTicket  adhocTicket = null;
 	 private long exitTime;
@@ -27,13 +28,12 @@ public class ExitController
 	
 	
 				   
-
-	 public ExitController(Carpark carpark, IGate exitGate, 
+	  public ExitController(Carpark carpark, IGate exitGate, 
 			 ICarSensor is,
 			 ICarSensor os, 
 			 IExitUI ui) {
 		
-		//TODO Implement Constructor
+		 //TODO Implement Constructor
 		 
 		
 	}
