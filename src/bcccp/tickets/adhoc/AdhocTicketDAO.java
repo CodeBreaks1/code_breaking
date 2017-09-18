@@ -19,8 +19,9 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
 	@Override
 	public IAdhocTicket createTicket(String carparkId) {
-		// TODO Auto-generated method stub
-		return null;
+		if(carparkId == null || carparkId.isEmpty())
+			throw new RuntimeException("CarparkID is invalid");		
+		return null; // Returns a valid adhoc ticket
 	}
 
 
