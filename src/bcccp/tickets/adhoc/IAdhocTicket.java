@@ -6,7 +6,7 @@ public interface IAdhocTicket {
 	public String getBarcode();
 	public String getCarparkId();
 
-	public void enter(long dateTime);
+	public void enter(long dateTime) throws Exception;
 	public long getEntryDateTime();
 	public boolean isCurrent();
 	
