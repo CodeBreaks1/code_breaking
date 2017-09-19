@@ -1,63 +1,63 @@
-package bcccp.carpark.exit;
+ package bcccp.carpark.exit;
 
-import bcccp.carpark.Carpark;
-import bcccp.carpark.ICarSensor;
-import bcccp.carpark.ICarSensorResponder;
-import bcccp.carpark.ICarpark;
-import bcccp.carpark.IGate;
-import bcccp.tickets.adhoc.IAdhocTicket;
+ import bcccp.carpark.Carpark;
+ import bcccp.carpark.ICarSensor;
+ import bcccp.carpark.ICarSensorResponder;
+ import bcccp.carpark.ICarpark;
+ import bcccp.carpark.IGate;
+ import bcccp.tickets.adhoc.IAdhocTicket;
 
 
-public class ExitController 
-		implements ICarSensorResponder,
-		           IExitController {
+ public class ExitController 
+		 implements ICarSensorResponder,
+		            IExitController {
 	
-	private enum STATE { IDLE, WAITING, PROCESSED, REJECTED, TAKEN, EXITING, EXITED, BLOCKED } 
+	 private enum STATE { IDLE, WAITING, PROCESSED, REJECTED, TAKEN, EXITING, EXITED, BLOCKED } 
 	
 				   
-	private STATE state;
-	private STATE prevState;
-	private String message;
+	 private STATE state;
+	 private STATE prevState;
+	 private String message;
 				   
-	//private String prevMessage;
+	 //private String prevMessage;
 	
 				   
-	private IGate exitGate;
-	private ICarSensor is;
-	private ICarSensor os; 
-	private IExitUI ui;
+	 private IGate exitGate;
+	 private ICarSensor is;
+	 private ICarSensor os; 
+	 private IExitUI ui;
 	
-	private ICarpark carpark;
-	private IAdhocTicket  adhocTicket = null;
-	private long exitTime;
-	private String seasonTicketId = null;
+	 private ICarpark carpark;
+	 private IAdhocTicket  adhocTicket = null;
+	 private long exitTime;
+	 private String seasonTicketId = null;
 	
 	
 
-	public ExitController(Carpark carpark, IGate exitGate, 
-			ICarSensor is,
-			ICarSensor os, 
-			IExitUI ui) {
+	 public ExitController(Carpark carpark, IGate exitGate, 
+			 ICarSensor is,
+			 ICarSensor os, 
+			 IExitUI ui) {
 		
-		this.carpark = carpark;
-		this.exitGate = exitGate;
-		this.is = is;
-		this.os = os;
-		this.ui = ui;
+		 this.carpark = carpark;
+		 this.exitGate = exitGate;
+		 this.is = is;
+		 this.os = os;
+		 this.ui = ui;
 		
 		
-		os.registerResponder(this);
-		is.registerResponder(this);
-		ui.registerController(this);
+		 os.registerResponder(this);
+		 is.registerResponder(this);
+		 ui.registerController(this);
 
-		prevState = STATE.IDLE;		
-		setState(STATE.IDLE);		
+		 prevState = STATE.IDLE;		
+		 setState(STATE.IDLE);		
 	}
 
 	
 	
-	private void log(String message) {
-		System.out.println("ExitController : " + message);
+	  private void log(String message) {
+		 System.out.println("ExitController : " + message);
 	}
 
 
@@ -76,21 +76,21 @@ public class ExitController
 			break;
 			
 				
-		case IDLE: 
-			log("eventDetected: IDLE");
-			if (detectorId.equals(is.getId()) && carDetected) {
+		 case IDLE: 
+			 log("eventDetected: IDLE");
+			 if (detectorId.equals(is.getId()) && carDetected) {
 				log("eventDetected: setting state to WAITING");
 				setState(STATE.WAITING);
 			}
-			else if (detectorId.equals(os.getId()) && carDetected) {
+			 else if (detectorId.equals(os.getId()) && carDetected) {
 				setState(STATE.BLOCKED);
 			}
-			break;
+			 break;
 			
-		case WAITING: 
-		case PROCESSED: 
-			if (detectorId.equals(is.getId()) && !carDetected) {
-				setState(STATE.IDLE);
+		 case WAITING: 
+		 case PROCESSED: 
+			 if (detectorId.equals(is.getId()) && !carDetected) {
+				 setState(STATE.IDLE);
 			}
 			else if (detectorId.equals(os.getId()) && carDetected) {
 				setState(STATE.BLOCKED);
@@ -146,19 +146,19 @@ public class ExitController
 			break;
 			
 		case IDLE: 
-			log("setState: IDLE");
-			if (prevState == STATE.EXITED) {
-				if (adhocTicket != null) {
-					adhocTicket.exit(exitTime);
-					carpark.recordAdhocTicketExit();
-					log(adhocTicket.toString() );
-				}
-				else if (seasonTicketId != null) {
-					carpark.recordSeasonTicketExit(seasonTicketId);
-				}
-			}
-			adhocTicket = null;
-			seasonTicketId = null;
+			 log("setState: IDLE");
+			 if (prevState == STATE.EXITED) {
+				 if (adhocTicket != null) {
+					 adhocTicket.exit(exitTime);
+					 carpark.recordAdhocTicketExit();
+					 log(adhocTicket.toString() );
+				 }
+				 else if (seasonTicketId != null) {
+					 carpark.recordSeasonTicketExit(seasonTicketId);
+				 }
+			 }
+			 adhocTicket = null;
+			  seasonTicketId = null;
 			
 			message = "Idle";
 			state = STATE.IDLE;
