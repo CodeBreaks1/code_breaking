@@ -146,19 +146,19 @@
 			break;
 			
 		case IDLE: 
-			log("setState: IDLE");
-			if (prevState == STATE.EXITED) {
-				if (adhocTicket != null) {
-					adhocTicket.exit(exitTime);
-					carpark.recordAdhocTicketExit();
-					log(adhocTicket.toString() );
-				}
-				else if (seasonTicketId != null) {
-					carpark.recordSeasonTicketExit(seasonTicketId);
-				}
-			}
-			adhocTicket = null;
-			seasonTicketId = null;
+			 log("setState: IDLE");
+			 if (prevState == STATE.EXITED) {
+				 if (adhocTicket != null) {
+					 adhocTicket.exit(exitTime);
+					 carpark.recordAdhocTicketExit();
+					 log(adhocTicket.toString() );
+				 }
+				 else if (seasonTicketId != null) {
+					 carpark.recordSeasonTicketExit(seasonTicketId);
+				 }
+			 }
+			 adhocTicket = null;
+			  seasonTicketId = null;
 			
 			message = "Idle";
 			state = STATE.IDLE;
