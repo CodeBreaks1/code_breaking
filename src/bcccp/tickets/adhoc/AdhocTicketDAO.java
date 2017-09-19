@@ -10,15 +10,18 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 	
 	
 	public AdhocTicketDAO(IAdhocTicketFactory factory) {
-		//TODO Implement constructor
+		if(factory == null)
+			throw new RuntimeException("factory is null");
+		this.factory = factory;
 	}
 
 
 
 	@Override
 	public IAdhocTicket createTicket(String carparkId) {
-		// TODO Auto-generated method stub
-		return null;
+		if(carparkId == null || carparkId.isEmpty())
+			throw new RuntimeException("CarparkID is invalid");		
+		return null; // Returns a valid adhoc ticket, ==> No available IAdhocTicket property or method
 	}
 
 
