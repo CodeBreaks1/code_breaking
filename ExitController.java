@@ -7,17 +7,21 @@ import bcccp.carpark.ICarpark;
 import bcccp.carpark.IGate;
 import bcccp.tickets.adhoc.IAdhocTicket;
 
+
 public class ExitController 
 		implements ICarSensorResponder,
 		           IExitController {
 	
 	private enum STATE { IDLE, WAITING, PROCESSED, REJECTED, TAKEN, EXITING, EXITED, BLOCKED } 
 	
+				   
 	private STATE state;
 	private STATE prevState;
 	private String message;
+				   
 	//private String prevMessage;
 	
+				   
 	private IGate exitGate;
 	private ICarSensor is;
 	private ICarSensor os; 
@@ -40,6 +44,7 @@ public class ExitController
 		this.is = is;
 		this.os = os;
 		this.ui = ui;
+		
 		
 		os.registerResponder(this);
 		is.registerResponder(this);
@@ -70,6 +75,7 @@ public class ExitController
 			}
 			break;
 			
+				
 		case IDLE: 
 			log("eventDetected: IDLE");
 			if (detectorId.equals(is.getId()) && carDetected) {
@@ -265,6 +271,7 @@ public class ExitController
 				seasonTicketId = ticketStr;
 				setState(STATE.PROCESSED);
 			}
+			
 			else {
 				ui.beep();
 				setState(STATE.REJECTED);						
@@ -290,6 +297,7 @@ public class ExitController
 		else if (state == STATE.REJECTED) {
 			setState(STATE.WAITING);
 		}
+		
 		else {
 			ui.beep();
 			log("ticketTaken: called while in incorrect state");
