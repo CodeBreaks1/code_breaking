@@ -18,6 +18,7 @@
 	 private STATE state;
 	 private STATE prevState;
 	 private String message;
+				    
 				   
 	 //private String prevMessage;
 	
