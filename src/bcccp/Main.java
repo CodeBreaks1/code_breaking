@@ -25,6 +25,7 @@ public class Main {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				// add try catch for sorting
 				try {
 					CarSensor eos = new CarSensor("Entry Outside Sensor", 20, 100);
 					Gate egate = new Gate(20, 320);
@@ -74,8 +75,8 @@ public class Main {
 					xos.setVisible(true);
 					
 				} 
-				catch (Exception e) {
-					e.printStackTrace();
+					catch (Exception e) {
+						e.printStackTrace();
 				}
 			}
 		}//edit
