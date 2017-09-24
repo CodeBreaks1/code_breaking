@@ -20,13 +20,18 @@ import bcccp.tickets.season.SeasonTicket;
 import bcccp.tickets.season.SeasonTicketDAO;
 import bcccp.tickets.season.UsageRecordFactory;
 //comment 2
-public class Main {
+public class Main 
+{
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+	public static void main(String[] args) 
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run() 
+			{
 				// add try catch for sorting
-				try {
+				try 
+				{
 					CarSensor eos = new CarSensor("Entry Outside Sensor", 20, 100);
 					Gate egate = new Gate(20, 320);
 					CarSensor eis = new CarSensor("Entry Inside Sensor", 20, 440);
@@ -75,11 +80,11 @@ public class Main {
 					xos.setVisible(true);
 					
 				} 
-					catch (Exception e) {
+				catch (Exception e) 
+				{
 						e.printStackTrace();
 				}
 			}
-		})
+		});
 	}
-
 }
