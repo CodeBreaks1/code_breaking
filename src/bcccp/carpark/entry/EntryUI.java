@@ -42,7 +42,7 @@ public class EntryUI extends JFrame implements IEntryUI {
 					e.printStackTrace();
 				}
 			}
-		});
+		}//  notacklipable characters 
 	}
 
 	
